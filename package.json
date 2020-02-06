@@ -1,0 +1,124 @@
+{
+    "name": "crmscript",
+    "displayName": "crmscript",
+    "description": "crmscript language",
+    "version": "0.0.1",
+    "publisher": "sintef",
+    "engines": {
+        "vscode": "^1.19.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:crmscript",
+        "onCommand:cirrus.login",
+        "onCommand:cirrus.createProject",
+        "onCommand:cirrus.downloadToCurrentFolder",
+        "onCommand:cirrus.uploadAllInFolder"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "cirrus.login",
+                "title": "Cirrus: Login"
+            },
+            {
+                "command": "cirrus.createProject",
+                "title": "Cirrus: Create Project"
+            },
+            {
+                "command": "cirrus.downloadToCurrentFolder",
+                "title": "Cirrus: Download scripts to the current folder"
+            },
+            {
+                "command": "cirrus.uploadAllInFolder",
+                "title": "Cirrus: Upload all in the current folder"
+            },
+            {
+                "command": "cirrus.executeScript",
+                "title": "Cirrus: Execute Script"
+            }
+        ],
+        "languages": [
+            {
+                "id": "crmscript",
+                "aliases": [
+                    "crmscript",
+                    "CRMScript",
+                    "EJScript"
+                ],
+                "extensions": [
+                    ".crm",
+                    ".ej",
+                    ".crmscript",
+                    ".ejscript"
+                ],
+                "configuration": "./language-configuration-crmscript.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "crmscript",
+                "scopeName": "source.crmscript",
+                "path": "./syntaxes/crmscript.tmLanguage.json"
+            }
+        ],
+        "themes": [
+            {
+                "label": "CRMScriptTheme",
+                "uiTheme": "vs-dark",
+                "path": "./themes/CRMScriptTheme.json"
+            },
+            {
+                "label": "Sample Light",
+                "uiTheme": "vs",
+                "path": "./themes/Sample_Light.tmTheme"
+            },
+            {
+                "label": "Sample Dark",
+                "uiTheme": "vs-dark",
+                "path": "./themes/Sample_Dark.tmTheme"
+            }
+        ],
+        "menus": {
+            "editor/title/context": [
+                {
+                    "when": "resourceLangId == crmscript",
+                    "command": "cirrus.executeScript",
+                    "group": "navigation"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "dependencies": {
+        "@openid/appauth": "^1.1.1",
+        "events": "3.0.0",
+        "jquery": "^3.4.1",
+        "jsonwebtoken": "^8.5.1",
+        "jwks-rsa": "^1.4.0",
+        "mac-open": "^0.1.3",
+        "md5": "2.2.1",
+        "open": "^6.3.0",
+        "request-promise": "4.2.2",
+        "typescript-rest": "1.7.0"
+    },
+    "devDependencies": {
+        "@types/jquery": "3.3.6",
+        "@types/jsonwebtoken": "^8.3.2",
+        "@types/mocha": "^2.2.42",
+        "@types/node": "^7.0.43",
+        "@types/react": "^16.7.1",
+        "@types/request-promise": "4.1.42",
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.34"
+    }
+}
