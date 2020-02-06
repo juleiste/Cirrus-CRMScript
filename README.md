@@ -1,6 +1,8 @@
 # CRMScript IDE
 
-An offline IDE for customising SuperOffice CRM with its CRMScript language.
+An offline IDE for customising SuperOffice CRM with its CRMScript language. 
+
+NB: This Project is copied from https://github.com/SuperOffice/vscode-crmscript for further development 
 
 # Features
 
